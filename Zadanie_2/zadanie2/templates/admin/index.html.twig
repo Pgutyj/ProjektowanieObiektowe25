@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Lista Użytkowników</h1>
+    <ul>
+        {% for user in users %}
+            <li>
+                <strong>nazwa użytkownika: {{ user.username }}</strong><br>
+                email: {{ user.email }}<br>
+               hasło: {{ user.password }}<br>
+                <a href="{{ url('user_show', {id: user.id}) }}" class="btn btn-secondary">Zobacz szczegóły</a>
+              <a href="{{ url('profile_edit', {id: user.id}) }}" class="btn btn-secondary">Edytuj dane użytkownika</a>
+                <a href="{{ url('password_edit', {id: user.id}) }}" class="btn btn-secondary">Edytuj hasło</a>
+                <a href="{{ url('user_delete', {id: user.id})  }}" class="btn btn-secondary">Usuń</a>
+            </li>
+        {% else %}
+            <li>Brak użytkowników.</li>
+        {% endfor %}
+        <a href="{{ path('product_index') }}" class="btn btn-secondary">Powrót do strony głównej</a>
+    </ul>
+{% endblock %}

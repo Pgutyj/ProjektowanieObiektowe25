@@ -1,0 +1,16 @@
+{# templates/product/edit.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Edycja produktu{% endblock %}
+
+{% block body %}
+    <h1>Edycja produktu: {{ product.name }}</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.price) }}
+    {{ form_row(form.category) }}
+    <button class="btn btn-primary" type="submit">Zapisz zmiany</button>
+    {{ form_end(form) }}
+{% endblock %}

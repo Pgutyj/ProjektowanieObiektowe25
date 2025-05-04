@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nowy Produkt{% endblock %}
+
+{% block body %}
+    <h1>Dodaj nowy produkt</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.price) }}
+        {{ form_row(form.category) }}
+
+        <button class="btn btn-primary" type="submit">Zapisz</button>
+    {{ form_end(form) }}
+    <a href="{{ path('product_index') }}" class="btn btn-secondary">Powrót do strony głównej</a>
+{% endblock %}

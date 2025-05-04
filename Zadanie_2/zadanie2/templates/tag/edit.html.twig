@@ -1,0 +1,15 @@
+{# templates/product/edit.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Edycja tagu{% endblock %}
+
+{% block body %}
+    <h1>Edycja tagu: {{ tag.name }}</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.name) }}
+
+    <button class="btn btn-primary" type="submit">Zapisz zmiany</button>
+    {{ form_end(form) }}
+{% endblock %}

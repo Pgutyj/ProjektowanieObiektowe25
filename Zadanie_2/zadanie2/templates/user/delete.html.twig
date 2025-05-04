@@ -1,0 +1,11 @@
+{# templates/product/show.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Usuwanie konta</h1>
+    email: {{ user.email }}<br>
+    nazwa użytkownika: {{ user.username }}
+<form action="{{ path('user_delete', {'id': user.id}) }}" method="post" onsubmit="return confirm('Czy na pewno chcesz usunąć konto?');">
+    <button class="btn btn-danger" type="submit">Usuń konto</button>
+</form>
+{% endblock %}

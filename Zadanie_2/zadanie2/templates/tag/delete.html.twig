@@ -1,0 +1,9 @@
+{# templates/tag/show.html.twig #}
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>{{ tag.name }}</h1>
+
+<form action="{{ path('tag_delete', {'id': tag.id}) }}" method="post" onsubmit="return confirm('Czy na pewno chcesz usunąć ten tag?');">
+    <button class="btn btn-danger" type="submit">Usuń tag</button>
+</form>
+{% endblock %}

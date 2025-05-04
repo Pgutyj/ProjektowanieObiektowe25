@@ -1,0 +1,11 @@
+{# templates/product/show.html.twig #}
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>{{ product.name }}</h1>
+<p>{{ product.price }}</p>
+<p>{{ product.category }}</p>
+
+<form action="{{ path('product_delete', {'id': product.id}) }}" method="post" onsubmit="return confirm('Czy na pewno chcesz usunąć ten produkt?');">
+    <button class="btn btn-danger" type="submit">Usuń produkt</button>
+</form>
+{% endblock %}

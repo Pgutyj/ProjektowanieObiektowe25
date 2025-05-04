@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>Twoje konto</h1>
+<ul>
+    <li>
+        {{ user.username }}<br>
+    </li>
+    <li>
+        {{ user.email }}<br>
+    </li>
+
+
+    <a href="{{ url('profile_edit', {id: user.id}) }}" class="btn btn-secondary">Edytuj dane użytkownika</a>
+    <a href="{{ url('password_edit', {id: user.id}) }}" class="btn btn-secondary">Edytuj hasło</a>
+
+    <a href="{{ url('user_delete', {id: user.id}) }}" class="btn btn-secondary">Usuń konto</a>
+    <a href="{{ path('app_logout') }}" class="btn btn-secondary">Wyloguj się</a><br>
+
+    <a style="margin-top: 15px;" href="{{ path('tag_index') }}" class="btn btn-secondary">Powrót do strony głównej</a>
+
+</ul>
+{% endblock %}

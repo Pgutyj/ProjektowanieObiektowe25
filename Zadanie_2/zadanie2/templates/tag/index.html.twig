@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>Lista tagów</h1>
+<a href="{{ path('tag_create') }}" class="btn btn-secondary">Stwórz nowy tag</a>
+<ul>
+    {% for tag in tags %}
+        <li>
+            <strong>{{ tag.name }}</strong><br>
+            <a href="{{ url('tag_show', {id: tag.id}) }}" class="btn btn-secondary">Zobacz szczegóły</a>
+            <a href="{{ url('tag_edit', {id: tag.id}) }}" class="btn btn-secondary">Edytuj</a>
+            <a href="{{ url('tag_delete', {id: tag.id})  }}" class="btn btn-secondary">Usuń</a>
+        </li>
+    {% else %}
+        <li>Brak tagów.</li>
+    {% endfor %}
+    <a href="{{ path('product_index') }}" class="btn btn-secondary">Powrót do strony głównej</a>
+</ul>
+{% endblock %}

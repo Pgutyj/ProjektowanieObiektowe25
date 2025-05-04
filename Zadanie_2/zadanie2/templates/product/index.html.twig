@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>Lista produktów</h1>
+<a href="{{ path('product_create') }}" class="btn btn-secondary">Stwórz nowy produkt</a>
+<ul>
+    {% for product in products %}
+        <li>
+            <strong>{{ product.name }}</strong><br>
+            Cena: {{ product.price }} zł <br>
+            Kategoria: {{ product.category }}
+            <a href="{{ url('product_show', {id: product.id}) }}" class="btn btn-secondary">Zobacz szczegóły</a>
+            <a href="{{ url('product_edit', {id: product.id}) }}" class="btn btn-secondary">Edytuj</a>
+            <a href="{{ url('product_delete', {id: product.id})  }}" class="btn btn-secondary">Usuń</a>
+        </li>
+    {% else %}
+        <li>Brak produktów.</li>
+    {% endfor %}
+    <a href="{{ path('product_index') }}" class="btn btn-secondary">Powrót do strony głównej</a>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('admin_panel') }}" class="btn btn-secondary">Panel administratora</a>
+    {% endif %}
+    <a href="{{ path('tag_index') }}" class="btn btn-secondary">Panel tagów</a>
+</ul>
+{% endblock %}

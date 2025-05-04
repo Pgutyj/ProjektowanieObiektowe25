@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rejestracja{% endblock %}
+
+{% block body %}
+    <h1>Załóż konto</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.username) }}
+    {{ form_row(form.password) }}
+
+    <button class="btn btn-success">Zarejestruj się</button>
+    {{ form_end(form) }}
+{% endblock %}

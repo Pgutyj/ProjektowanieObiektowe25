@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<ul>
+    <li>
+        Nazwa tagu: {{ tag.name }}<br>
+    </li>
+    <li>
+        <a href="{{ url('tag_edit', {id: tag.id}) }}" class="btn btn-secondary">Edytuj</a>
+        <a href="{{ path('tag_index') }}" class="btn btn-secondary">Wszystkie tagi</a>
+        <a href="{{ url('tag_delete', {id: tag.id})  }}" class="btn btn-secondary">Usuń</a>
+    </li>
+
+
+    <a href="{{ path('tag_index') }}" class="btn btn-secondary">Powrót do strony głównej</a>
+</ul>
+{% endblock %}

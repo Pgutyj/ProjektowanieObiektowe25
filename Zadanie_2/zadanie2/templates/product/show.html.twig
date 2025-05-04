@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<ul>
+<li>
+            Nazwa produktu: {{ product.name }}<br>
+        </li>
+    <li>
+        Cena: {{ product.price }} zł <br>
+    </li>
+    <li>
+        Kategoria: {{ product.category }}<br>
+    </li>
+    <li>
+        <a href="{{ url('product_show', {id: product.id}) }}" class="btn btn-secondary">Usuń</a>
+        <a href="{{ url('product_edit', {id: product.id}) }}" class="btn btn-secondary">Edytuj</a>
+        <a href="{{ path('product_index') }}" class="btn btn-secondary">Wszystkie Produkty</a>
+        <a href="{{ url('product_delete', {id: product.id})  }}" class="btn btn-secondary">Usuń</a>
+    </li>
+
+
+    <a href="{{ path('product_index') }}" class="btn btn-secondary">Powrót do strony głównej</a>
+</ul>
+{% endblock %}
